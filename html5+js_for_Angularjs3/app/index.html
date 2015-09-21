@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja" ng-app="phonecatApp"><!--htmlタグにng-appを入れようゼイァ！-->
+<head>
+	<meta charset="utf-8">
+	<title>AngularJS　Study:{{query}}</title>
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+	<!--Angular読み込み-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular.min.js"></script>
+	<script src="js/controllers.js"></script>
+
+</head>
+<body ng-controller="PhoneListCtrl">
+
+	Search:<input ng-model="query">
+	Sort by:
+	<select ng-model="orderProp">
+		<option value="name">Alphabetical</option>
+		<option value="age">Newest</option>
+	</select>
+
+	<ul class="phones">
+		<li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+			{{phone.name}}
+			<p>{{phone.snippet}}</p>
+		</li>
+	</ul>
+
+
+
+</body>
+</html>
