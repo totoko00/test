@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app>
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="controller/controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/css.css">
+    <title>AngularJS_test</title>
+</head>
+<body>
+	<div ng-controller="TodoController">
+		<h2>Todo <span>{{todos.length}}</span> 件</h2>
+		<div>
+			[ <a href="" ng-click="clear()">完了済を消去</a> ]
+    		<ul>
+    			<li ng-repeat="todo in todos">
+                    <input type="checkbox" ng-model="todo.done">
+                    <span class="done-{{todo.done}}">{{todo.text}}</span>
+                </li>
+    		</ul>
+    		<form ng-submit="addTodo()">
+    			<input type="text" ng-model="textf" size="30" placeholder="Todoを入れてください。">
+    			<input type="submit" value="Todo追加">
+    		</form>
+  		</div>
+	</div>
+</body>
+</html>
